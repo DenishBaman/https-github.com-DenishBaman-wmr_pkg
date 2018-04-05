@@ -1,0 +1,37 @@
+<launch>
+
+	<arg name="robot_name" default="wmr" />
+    
+                    <!-- Load Parameters -->
+	<include file="$(find wmr_pkg)/launch/load_params.launch" >
+		<arg name="robot_name" value="$(arg robot_name)" />
+	</include>
+	                    <!-- Launch TrajectoryGenerator -->
+<!--	<include file="$(find trajectory_generation)/launch/launch_trajectory_generation.launch" >
+		<arg name="robot_name" value="$(arg robot_name)" />
+	</include>
+                        <!-- Launch Controller -->
+	<include file="$(find controller)/launch/launch_controller.launch" >
+		<arg name="robot_name" value="$(arg robot_name)" />
+	</include>
+    -->
+                    <!-- Launch Feedback -->
+	<include file="$(find wmr_state_feedback)/launch/launch_wmr_state_feedback.launch" >
+		<arg name="robot_name" value="$(arg robot_name)" />
+	</include>
+    
+                        <!-- Launch rosbag recorder -->
+	<node   ns="$(arg robot_name)"
+        pkg="wmr_pkg"
+        name="record_data_to_rosbag"
+        type="initiate_rosbag_node"
+        respawn="true"
+        output="screen" />
+
+      <!--
+                 <!-- Load tuned control gains -->
+    <rosparam   ns="$(arg robot_name)"
+                command="load"
+                file="$(find wmr_pkg)/config/control_gains.yaml" />
+	-->
+</launch>

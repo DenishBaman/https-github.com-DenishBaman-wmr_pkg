@@ -1,0 +1,12 @@
+<launch>
+
+<arg name="robot_name" default="wmr" />
+ 
+<node   ns="$(arg robot_name)"
+        name="pose_from_gps"
+        pkg="wmr_state_feedback"
+        type="gps_to_pose"
+        respawn="true"
+        output="screen" />
+i
+</launch>

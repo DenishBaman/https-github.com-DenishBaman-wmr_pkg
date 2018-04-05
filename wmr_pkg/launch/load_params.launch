@@ -1,0 +1,13 @@
+<launch>
+
+<arg name="robot_name" default="wmr"/>
+
+<rosparam   ns="$(arg robot_name)"
+            command="load" 
+            file="$(find wmr_pkg)/config/wmr_parameters.yaml"/>
+
+<rosparam   ns="$(arg robot_name)"
+            command="load" 
+            file="$(find wmr_pkg)/config/wmr_topics.yaml"/>
+
+</launch>
