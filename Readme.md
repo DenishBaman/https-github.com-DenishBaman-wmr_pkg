@@ -1,7 +1,7 @@
 # Wheel Mobile Robot(WMR) package
 A framwork to make over the network commincation setup between unmmaned ground vehicle and ground station. 
 
-*Download repository 
+*Download repository* 
 ```
 cd
 mkdir -p ~/wmr_pkg/src
@@ -21,4 +21,4 @@ A package for sensor data acquisition and utilization for vehicle state feedback
 
 1. GPS 
 
-Acquire the raw GPS data and determine the local position of the vehicle.  
+Acquire the raw GPS data to determine the local position of the vehicle.  
